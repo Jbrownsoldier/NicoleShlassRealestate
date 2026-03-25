@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { BedDouble, Bath, Maximize2, Car, Package, ArrowLeft, CheckCircle2 } from "lucide-react";
 import { properties } from "@/data/properties";
 import { PropertyGallery } from "@/components/ui/PropertyGallery";
+import { PropertyHero } from "@/components/ui/PropertyHero";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
@@ -18,9 +19,22 @@ export async function generateMetadata({
   const { id } = await params;
   const property = properties.find((p) => p.id === id);
   if (!property) return {};
+  const desc = property.description.slice(0, 155) + "…";
+  const title = `${property.title} — ${property.address}`;
   return {
-    title: `${property.title} — ${property.address} | Nicole Shlass Real Estate`,
-    description: property.description.slice(0, 160),
+    title,
+    description: desc,
+    alternates: { canonical: `https://nicoleshlass.ca/properties/${property.id}` },
+    openGraph: {
+      title,
+      description: desc,
+      url: `https://nicoleshlass.ca/properties/${property.id}`,
+      type: "website",
+    },
+    twitter: {
+      title,
+      description: desc,
+    },
   };
 }
 
@@ -51,6 +65,7 @@ export default async function PropertyDetailPage({
     features,
     buildingAmenities,
     images,
+    video,
   } = property;
 
   const isFloorPlan = (src: string) =>
@@ -67,6 +82,9 @@ export default async function PropertyDetailPage({
 
   return (
     <>
+      {/* Preload property video so it's buffered before the hero component mounts */}
+      {video && <link rel="preload" as="video" href={video} type="video/mp4" />}
+
       {/* Back link */}
       <div className="max-w-7xl mx-auto px-6 pt-28 pb-4">
         <Link
@@ -78,28 +96,15 @@ export default async function PropertyDetailPage({
         </Link>
       </div>
 
-      {/* Hero Image */}
+      {/* Hero Image / Video */}
       <div className="max-w-7xl mx-auto px-6 pb-8">
-        <div className="relative w-full overflow-hidden rounded-2xl bg-surface-c" style={{ aspectRatio: "16/9" }}>
-          <Image
-            src={heroImage}
-            alt={title}
-            fill
-            priority
-            sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover"
-          />
-          {tag && (
-            <span className="absolute top-5 left-5 px-3 py-1.5 rounded-full text-label-sm font-semibold backdrop-blur-sm bg-surface-c/80 text-on-surface ghost-border">
-              {tag}
-            </span>
-          )}
-          {type === "sold" && (
-            <span className="absolute top-5 right-5 px-3 py-1.5 rounded-full text-label-sm font-semibold backdrop-blur-sm bg-tertiary/20 text-tertiary border border-tertiary/30">
-              Sold
-            </span>
-          )}
-        </div>
+        <PropertyHero
+          image={heroImage}
+          video={video}
+          title={title}
+          tag={tag}
+          type={type}
+        />
       </div>
 
       {/* Main Content */}

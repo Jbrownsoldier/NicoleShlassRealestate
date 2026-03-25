@@ -7,6 +7,18 @@ export const metadata: Metadata = {
   title: "Buying a Home in Toronto",
   description:
     "Work with Nicole Shlass for expert buyer representation, strategic negotiation, and honest guidance throughout your home purchase across Toronto and the GTA.",
+  alternates: { canonical: "https://nicoleshlass.ca/buying" },
+  openGraph: {
+    title: "Buying a Home in Toronto — Nicole Shlass",
+    description:
+      "Access off-market inventory, strategic negotiation, and honest guidance from one of Toronto's most trusted buyer agents.",
+    url: "https://nicoleshlass.ca/buying",
+  },
+  twitter: {
+    title: "Buying a Home in Toronto — Nicole Shlass",
+    description:
+      "Access off-market inventory, strategic negotiation, and honest guidance from one of Toronto's most trusted buyer agents.",
+  },
 };
 
 const steps = [

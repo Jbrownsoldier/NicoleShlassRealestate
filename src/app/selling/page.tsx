@@ -7,6 +7,18 @@ export const metadata: Metadata = {
   title: "Selling Your Home in Toronto",
   description:
     "Nicole Shlass delivers strategic marketing, precise pricing, and an extensive buyer network to help you sell your Toronto home with confidence.",
+  alternates: { canonical: "https://nicoleshlass.ca/selling" },
+  openGraph: {
+    title: "Selling Your Home in Toronto — Nicole Shlass",
+    description:
+      "Commanding marketing, precise pricing, and an elite buyer network — designed to close your Toronto home above asking.",
+    url: "https://nicoleshlass.ca/selling",
+  },
+  twitter: {
+    title: "Selling Your Home in Toronto — Nicole Shlass",
+    description:
+      "Commanding marketing, precise pricing, and an elite buyer network — designed to close your Toronto home above asking.",
+  },
 };
 
 const pillars = [

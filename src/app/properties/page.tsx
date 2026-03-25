@@ -4,9 +4,21 @@ import { properties } from "@/data/properties";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Property Listings | Nicole Shlass Real Estate",
+  title: "Toronto Property Listings",
   description:
-    "Browse Nicole Shlass's current and past property listings — condos, lofts, townhouses, and family homes for sale across Toronto and the GTA.",
+    "Browse Nicole Shlass's current and past property listings — condos, lofts, townhouses, and family homes for sale and lease across Toronto and the GTA.",
+  alternates: { canonical: "https://nicoleshlass.ca/properties" },
+  openGraph: {
+    title: "Toronto Property Listings — Nicole Shlass Real Estate",
+    description:
+      "Condos, lofts, townhouses, and family homes for sale and lease across Toronto's most sought-after neighbourhoods.",
+    url: "https://nicoleshlass.ca/properties",
+  },
+  twitter: {
+    title: "Toronto Property Listings — Nicole Shlass Real Estate",
+    description:
+      "Condos, lofts, townhouses, and family homes for sale and lease across Toronto's most sought-after neighbourhoods.",
+  },
 };
 
 export default function PropertiesPage() {

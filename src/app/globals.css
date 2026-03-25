@@ -172,6 +172,16 @@ body {
   border: 1px solid rgba(70, 70, 77, 0.15);
 }
 
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* ─── Cursor hide ───────────────────────────────────────────────────────── */
+
+.cursor-none-all, .cursor-none-all * {
+  cursor: none !important;
+}
+
 /* ─── Scrollbar ─────────────────────────────────────────────────────────── */
 
 ::-webkit-scrollbar        { width: 5px; height: 5px; }
@@ -238,6 +248,84 @@ body {
 
 .scroll-indicator {
   animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* ─── Shimmer sweep (hover-triggered CTA glow) ──────────────────────────── */
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.18) 45%,
+    rgba(255,255,255,0.28) 50%,
+    rgba(255,255,255,0.18) 55%,
+    transparent 100%
+  );
+  width: 40%;
+  animation: shimmer 0s linear infinite;
+  pointer-events: none;
+}
+
+.shimmer:hover::after {
+  animation-duration: 1.2s;
+}
+
+/* ─── Gold gradient text ────────────────────────────────────────────────── */
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ─── Float animation (hero badge) ─────────────────────────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-float { animation: none; }
+}
+
+/* ─── Nav top accent line (scroll state) ───────────────────────────────── */
+
+.nav-accent-scrolled::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--color-gold) 25%,
+    var(--color-secondary) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 /* ─── Card accent border slide ──────────────────────────────────────────── */

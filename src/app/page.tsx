@@ -9,14 +9,26 @@ import { AnimatedStat } from "@/components/ui/AnimatedStat";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nicole Shlass — Real Estate Toronto",
+  title: "Nicole Shlass — Toronto Real Estate Agent",
   description:
     "Toronto real estate agent helping first-time buyers, upsizers, and families find homes that fit their life. Buying, selling, and leasing across Toronto and the GTA.",
+  alternates: { canonical: "https://nicoleshlass.ca" },
+  openGraph: {
+    title: "Nicole Shlass — Toronto Real Estate Agent",
+    description:
+      "Responsive, honest, and committed to finding you a home that truly fits your life. Browse exclusive listings across Toronto and the GTA.",
+    url: "https://nicoleshlass.ca",
+  },
+  twitter: {
+    title: "Nicole Shlass — Toronto Real Estate Agent",
+    description:
+      "Responsive, honest, and committed to finding you a home that truly fits your life. Browse exclusive listings across Toronto and the GTA.",
+  },
 };
 
 const stats = [
   { icon: Award,      value: "14",   suffix: " Yrs", label: "Of Experience" },
-  { icon: Users,      value: "400+",                 label: "Clients Served" },
+  { icon: Users,      value: "10+",  suffix: " Yrs",  label: "In Toronto Real Estate" },
   { icon: TrendingUp, value: "416",                  label: "Area Specialist" },
   { icon: Star,       value: "100%",                 label: "Client Satisfaction" },
 ];
@@ -24,6 +36,10 @@ const stats = [
 export default function HomePage() {
   return (
     <>
+      {/* Preload hero video so it's ready before the component hydrates */}
+      {/* eslint-disable-next-line @next/next/no-head-element */}
+      <link rel="preload" as="video" href="/video/hero.mp4" type="video/mp4" />
+
       {/* ─── Hero (client — parallax) ────────────────────────────────────────── */}
       <HeroSection />
 
@@ -38,13 +54,15 @@ export default function HomePage() {
                   i < 3 ? "lg:border-r lg:border-outline-variant/20" : ""
                 } ${i < 2 ? "border-b lg:border-b-0 border-outline-variant/20" : ""}`}
               >
-                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                  <Icon size={18} className="text-gold" />
+                <div className="relative w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                  <div className="absolute inset-0 rounded-full bg-gold/5 scale-[1.6] blur-sm pointer-events-none" />
+                  <div className="absolute inset-0 rounded-full border border-gold/15 scale-[1.3] pointer-events-none" />
+                  <Icon size={18} className="text-gold relative z-10" />
                 </div>
                 <div>
                   <AnimatedStat
                     value={value}
-                    className="font-serif text-headline-lg text-gold font-semibold"
+                    className="font-serif text-headline-lg text-gradient-gold font-semibold"
                   />
                   <p className="text-label-md text-outline">{label}</p>
                 </div>
@@ -98,28 +116,28 @@ export default function HomePage() {
               {
                 href: "/buying",
                 label: "Buying",
-                icon: "🏡",
+                numeral: "01",
                 desc: "Access off-market inventory and strategic negotiation to secure your ideal property at the right price.",
               },
               {
                 href: "/selling",
                 label: "Selling",
-                icon: "🏛",
+                numeral: "02",
                 desc: "Commanding marketing, precise pricing, and an elite buyer network to close above asking — consistently.",
               },
               {
                 href: "/leasing",
                 label: "Leasing",
-                icon: "🗝",
+                numeral: "03",
                 desc: "Lease representation for both tenants and landlords across Toronto's best neighbourhoods.",
               },
-            ].map(({ href, label, icon, desc }) => (
+            ].map(({ href, label, numeral, desc }) => (
               <StaggerItem key={href}>
                 <Link
                   href={href}
                   className="group glass-card rounded-2xl pt-12 pb-10 px-8 flex flex-col items-center text-center gap-5 hover:bg-surface-c-highest/80 transition-all duration-300 hover:-translate-y-1 shadow-card h-full"
                 >
-                  <span className="text-6xl block">{icon}</span>
+                  <span className="font-serif text-[4rem] leading-none font-semibold text-gradient-gold opacity-50 group-hover:opacity-80 transition-opacity duration-300">{numeral}</span>
                   <div>
                     <h3 className="font-serif text-headline-sm text-on-surface font-semibold mb-3 group-hover:text-primary transition-colors">
                       {label}
@@ -145,9 +163,10 @@ export default function HomePage() {
               <div className="relative p-4 rounded-2xl border border-secondary/15 shadow-ambient">
                 <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
                   <Image
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format"
+                    src="/nicole1.jpg"
                     alt="Nicole Shlass, Toronto Real Estate Agent"
                     fill
+                    priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     className="object-cover object-top"
                   />
@@ -164,20 +183,27 @@ export default function HomePage() {
             {/* Text — slide in from left */}
             <RevealOnScroll direction="left">
               <div className="flex flex-col gap-6">
-                <p className="text-label-lg text-gold">THE AGENT BEHIND THE BRAND</p>
+                <div className="flex items-center gap-3 mb-1">
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
+                    <rect x="4" y="0" width="5.66" height="5.66" rx="0.5" transform="rotate(45 4 0)" fill="var(--color-gold)" fillOpacity="0.6" />
+                  </svg>
+                  <p className="text-label-lg text-gold">THE AGENT BEHIND THE BRAND</p>
+                  <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
+                    <rect x="4" y="0" width="5.66" height="5.66" rx="0.5" transform="rotate(45 4 0)" fill="var(--color-gold)" fillOpacity="0.6" />
+                  </svg>
+                </div>
                 <h2 className="font-serif text-display-md text-on-surface font-semibold">
                   Precision.<br />Discretion.<br />Results.
                 </h2>
                 <p className="text-body-lg text-on-surface-variant leading-relaxed">
-                  Since 2011, Nicole Shlass has been helping Toronto buyers, sellers, and
-                  families navigate one of Canada&apos;s most dynamic real estate markets.
-                  She&apos;s known for her honesty, her responsiveness, and her ability to
-                  truly listen to what clients need.
+                  I&rsquo;m driven by curiosity and fueled by connection, and I approach every client 
+                  relationship with intention. I listen deeply, think ahead, and stay fully committed 
+                  to delivering outcomes that align with both your lifestyle and long-term vision.
                 </p>
                 <p className="text-body-lg text-on-surface-variant leading-relaxed">
-                  Whether you&apos;re a first-time buyer, a growing family looking to upsize,
-                  or someone ready for the next chapter — Nicole brings transparency,
-                  dependability, and a personalized approach to every transaction.
+                  I prioritize transparency, dependability, and a genuine commitment to setting you up for 
+                  success — whether you&apos;re a first-time buyer or moving into the next chapter 
+                  of your Toronto story.
                 </p>
                 <Link
                   href="/about"

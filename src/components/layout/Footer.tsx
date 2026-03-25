@@ -1,5 +1,35 @@
 import Link from "next/link";
-import { Phone, Mail, MapPin, Share2, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
+import { StaggerChildren, StaggerItem } from "@/components/ui/RevealOnScroll";
+
+// Social Links data
+const socialLinks = [
+  {
+    href: "https://www.instagram.com/nicoleshlass_realestate",
+    label: "Instagram",
+    icon: <Instagram size={18} />,
+  },
+  {
+    href: "https://www.facebook.com/profile.php?id=61563966463865",
+    label: "Facebook",
+    icon: <Facebook size={18} />,
+  },
+  {
+    href: "https://www.linkedin.com/in/nicoleshlass/",
+    label: "LinkedIn",
+    icon: <Linkedin size={18} />,
+  },
+  {
+    href: "https://www.tiktok.com/@nicoletorontorealtor",
+    label: "TikTok",
+    icon: <img src="https://cdn.simpleicons.org/tiktok/CECDD5" alt="TikTok" className="w-[18px] h-[18px] opacity-70 group-hover:opacity-100 transition-opacity" />,
+  },
+  {
+    href: "https://api.whatsapp.com/send?phone=4162716316",
+    label: "WhatsApp",
+    icon: <img src="https://cdn.simpleicons.org/whatsapp/CECDD5" alt="WhatsApp" className="w-[18px] h-[18px] opacity-70 group-hover:opacity-100 transition-opacity" />,
+  },
+];
 
 const services = [
   { href: "/buying",     label: "Buyer Representation" },
@@ -22,9 +52,9 @@ export function Footer() {
       <div className="h-px bg-gradient-to-r from-transparent via-secondary/35 to-transparent" />
       <div className="border-t border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-6 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <StaggerItem className="lg:col-span-1">
             <div className="mb-5">
               <p className="font-serif text-xl font-semibold text-on-surface">Nicole Shlass</p>
               <p className="text-label-sm text-outline tracking-widest mt-0.5">REAL ESTATE</p>
@@ -32,28 +62,24 @@ export function Footer() {
             <p className="text-body-md text-on-surface-variant leading-relaxed max-w-xs">
               Residential real estate for first-time buyers, upsizers, and families across Toronto and the GTA.
             </p>
-            <div className="flex gap-4 mt-6">
-              <a
-                href="https://www.instagram.com/nicoleshlass_realestate"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors"
-              >
-                <Share2 size={16} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/nicoleshlass"
-                target="_blank" rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-9 h-9 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary transition-colors"
-              >
-                <ExternalLink size={16} />
-              </a>
+            <div className="flex flex-wrap gap-3.5 mt-8">
+              {socialLinks.map(({ href, label, icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="w-10 h-10 rounded-full glass-card flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary/40 transition-all hover:scale-110 duration-300 group"
+                >
+                  {icon}
+                </a>
+              ))}
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Services */}
-          <div>
+          <StaggerItem>
             <h4 className="text-label-lg text-outline mb-5">Services</h4>
             <ul className="space-y-3">
               {services.map(({ href, label }) => (
@@ -64,10 +90,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
           {/* Company */}
-          <div>
+          <StaggerItem>
             <h4 className="text-label-lg text-outline mb-5">Company</h4>
             <ul className="space-y-3">
               {company.map(({ href, label }) => (
@@ -78,10 +104,10 @@ export function Footer() {
                 </li>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
           {/* Contact */}
-          <div>
+          <StaggerItem>
             <h4 className="text-label-lg text-outline mb-5">Contact</h4>
             <ul className="space-y-4">
               <li>
@@ -103,8 +129,8 @@ export function Footer() {
                 </span>
               </li>
             </ul>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerChildren>
 
         <div className="mt-16 pt-8 border-t border-outline-variant/15 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-label-sm text-outline">

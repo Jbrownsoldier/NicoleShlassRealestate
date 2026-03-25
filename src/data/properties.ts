@@ -21,6 +21,8 @@ export interface Property {
   image: string;
   /** Full ordered gallery; images[0] is the hero/card display image */
   images: string[];
+  /** Optional video — shown on card hover and as hero on detail page */
+  video?: string;
   featured?: boolean;
 }
 
@@ -70,6 +72,7 @@ export const properties: Property[] = [
       "24hr concierge",
     ],
     image: "/properties/liberty-village-918/65-east-liberty-hr011.jpg",
+    video: "/video/liberty-village-918.mp4",
     images: [
       "/properties/liberty-village-918/65-east-liberty-hr011.jpg",
       "/properties/liberty-village-918/65-east-liberty-hr003.jpg",
@@ -154,6 +157,7 @@ export const properties: Property[] = [
       "Entertainment lounge (games, TV, pool table)",
     ],
     image: "/properties/mimico-loft-421/200-manitoba-hr017.jpg",
+    video: "/video/mimico-loft-421.mp4",
     images: [
       "/properties/mimico-loft-421/200-manitoba-hr017.jpg",
       "/properties/mimico-loft-421/200-manitoba-hr002-1.jpg",
@@ -235,6 +239,7 @@ export const properties: Property[] = [
       "24hr concierge",
     ],
     image: "/properties/bay-st-414/33-bay-002-1.jpg",
+    video: "/video/bay-st-414.mp4",
     images: [
       "/properties/bay-st-414/33-bay-002-1.jpg",
       "/properties/bay-st-414/33-bay-005.jpg",

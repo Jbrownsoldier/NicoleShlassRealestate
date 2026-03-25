@@ -9,6 +9,18 @@ export const metadata: Metadata = {
   title: "Leasing in Toronto",
   description:
     "Lease representation for tenants and landlords across Toronto. Nicole Shlass helps you find or fill the right rental with care and expertise.",
+  alternates: { canonical: "https://nicoleshlass.ca/leasing" },
+  openGraph: {
+    title: "Toronto Leasing — Tenant & Landlord Representation",
+    description:
+      "Lease representation for both tenants and landlords across Toronto's best neighbourhoods. Find the right rental or fill your unit — with Nicole Shlass.",
+    url: "https://nicoleshlass.ca/leasing",
+  },
+  twitter: {
+    title: "Toronto Leasing — Tenant & Landlord Representation",
+    description:
+      "Lease representation for both tenants and landlords across Toronto's best neighbourhoods.",
+  },
 };
 
 const leaseProperties = properties.filter((p) => p.type === "lease");
