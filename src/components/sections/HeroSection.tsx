@@ -50,7 +50,7 @@ export function HeroSection() {
   );
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-end overflow-hidden selection:bg-secondary/30">
+    <section ref={ref} className="relative min-h-screen flex items-end overflow-hidden selection:bg-secondary/30 pt-24 md:pt-0">
       {/* Parallax video background */}
       <motion.div className="absolute inset-0 scale-110 origin-top" style={{ y: imageY }}>
         <video
