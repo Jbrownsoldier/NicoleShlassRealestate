@@ -1,6 +1,4 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "node:fs/promises";
-import { join } from "node:path";
 import { properties } from "@/data/properties";
 
 export const alt = "Property listing by Nicole Shlass";
@@ -26,12 +24,6 @@ export default async function Image({
     );
   }
 
-  // Load property hero image from public folder
-  const imgPath = join(process.cwd(), "public", property.image.replace(/^\//, ""));
-  const imgData = await readFile(imgPath, "base64");
-  const imgMime = property.image.toLowerCase().endsWith(".png") ? "image/png" : "image/jpeg";
-  const imgSrc = `data:${imgMime};base64,${imgData}`;
-
   const formattedPrice = property.priceLabel;
   const bedsLabel = property.bedsLabel ?? `${property.beds}`;
   const statusLabel =
@@ -45,29 +37,34 @@ export default async function Image({
           height: "100%",
           display: "flex",
           position: "relative",
-          background: "#0c0a0f",
+          background: "linear-gradient(135deg, #0c0a0f 0%, #1a1520 40%, #0f0d14 70%, #0c0a0f 100%)",
           overflow: "hidden",
         }}
       >
-        {/* Full-bleed property photo */}
-        <img
-          src={imgSrc}
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center",
-          }}
-        />
-
-        {/* Dark gradient — bottom 70% */}
+        {/* Subtle gold accent top-left */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            background: "linear-gradient(to bottom, rgba(12,10,15,0.15) 0%, rgba(12,10,15,0.5) 35%, rgba(12,10,15,0.92) 70%, #0c0a0f 100%)",
+            top: -120,
+            left: -120,
+            width: 400,
+            height: 400,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(201,169,110,0.08) 0%, transparent 70%)",
+            display: "flex",
+          }}
+        />
+
+        {/* Subtle accent bottom-right */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: -80,
+            right: -80,
+            width: 350,
+            height: 350,
+            borderRadius: "50%",
+            background: "radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%)",
             display: "flex",
           }}
         />
