@@ -29,7 +29,8 @@ export default async function Image({
   // Load property hero image from public folder
   const imgPath = join(process.cwd(), "public", property.image.replace(/^\//, ""));
   const imgData = await readFile(imgPath, "base64");
-  const imgSrc = `data:image/jpeg;base64,${imgData}`;
+  const imgMime = property.image.toLowerCase().endsWith(".png") ? "image/png" : "image/jpeg";
+  const imgSrc = `data:${imgMime};base64,${imgData}`;
 
   const formattedPrice = property.priceLabel;
   const bedsLabel = property.bedsLabel ?? `${property.beds}`;

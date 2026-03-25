@@ -687,7 +687,7 @@ export function Chatbot() {
     const motionProps = {
       initial: { opacity: 0, y: 5 },
       animate: { opacity: 1, y: 0 },
-      transition: { delay: i * 0.045, duration: 0.22, ease: "easeOut" },
+      transition: { delay: i * 0.045, duration: 0.22, ease: "easeOut" as const },
     };
 
     // Phone buttons → real <a href="tel:"> anchor
