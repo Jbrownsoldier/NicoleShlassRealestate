@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif, Manrope } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { PageTransition } from "@/components/layout/PageTransition";
 import "./globals.css";
 
 const notoSerif = Noto_Serif({
@@ -67,7 +68,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-surface text-on-surface">
         <Nav />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </body>
     </html>
