@@ -33,7 +33,7 @@ export function Nav() {
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-500",
           scrolled
-            ? "glass py-3 shadow-ambient"
+            ? "glass-deep py-3 shadow-ambient border-b border-secondary/20"
             : "bg-transparent py-5",
         )}
       >
@@ -53,18 +53,21 @@ export function Nav() {
             {links.map(({ href, label }) => {
               const active = pathname.startsWith(href);
               return (
-                <li key={href}>
+                <li key={href} className="relative flex flex-col items-center pb-1">
                   <Link
                     href={href}
                     className={cn(
                       "text-label-md transition-colors duration-200",
                       active
-                        ? "text-secondary"
+                        ? "text-on-surface"
                         : "text-on-surface-variant hover:text-on-surface",
                     )}
                   >
                     {label}
                   </Link>
+                  {active && (
+                    <span className="absolute -bottom-0.5 w-1 h-1 rounded-full bg-secondary" />
+                  )}
                 </li>
               );
             })}
@@ -74,7 +77,7 @@ export function Nav() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/concierge"
-              className="gradient-cta text-on-secondary text-label-md font-semibold px-5 py-2.5 rounded-full transition-opacity duration-200 hover:opacity-90"
+              className="gradient-cta text-on-secondary text-label-md font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_20px_-4px_rgba(240,185,179,0.5)]"
             >
               Concierge
             </Link>
@@ -104,7 +107,7 @@ export function Nav() {
         />
         <div
           className={cn(
-            "absolute top-0 right-0 h-full w-72 glass flex flex-col pt-24 px-8 pb-10 gap-2 transition-transform duration-300",
+            "absolute top-0 right-0 h-full w-72 glass-deep flex flex-col pt-24 px-8 pb-10 gap-2 transition-transform duration-300",
             open ? "translate-x-0" : "translate-x-full",
           )}
         >

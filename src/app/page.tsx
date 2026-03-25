@@ -24,8 +24,8 @@ export default function HomePage() {
       {/* ─── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-end overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85&auto=format"
-          alt="Toronto home"
+          src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=2000&q=85&auto=format"
+          alt="Toronto luxury home"
           fill
           priority
           sizes="100vw"
@@ -34,12 +34,28 @@ export default function HomePage() {
         <div className="absolute inset-0 gradient-overlay-full" />
         <div className="absolute inset-0 gradient-overlay-bottom" />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-24 w-full">
+        {/* Vertical "EST. 2011" text — right edge */}
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center gap-3 z-10">
+          <div className="w-px h-16 bg-gradient-to-b from-transparent to-on-surface-variant/30" />
+          <p
+            className="text-label-sm text-on-surface-variant/50 tracking-widest"
+            style={{ writingMode: "vertical-rl", letterSpacing: "0.25em" }}
+          >
+            EST. 2011
+          </p>
+          <div className="w-px h-16 bg-gradient-to-t from-transparent to-on-surface-variant/30" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-28 w-full">
           <div className="max-w-3xl">
-            <p className="text-label-lg text-secondary mb-6 tracking-widest">
-              TORONTO REAL ESTATE
-            </p>
-            <h1 className="font-serif text-display-lg text-on-surface font-semibold mb-7 leading-tight">
+            {/* Eyebrow with horizontal rule above */}
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-10 h-px bg-secondary/60" />
+              <p className="text-label-lg text-secondary">
+                TORONTO REAL ESTATE
+              </p>
+            </div>
+            <h1 className="font-serif text-display-lg text-on-surface font-semibold mb-7">
               Your Home.<br />
               <span className="text-primary">Curated,</span>{" "}
               Negotiated,<br />
@@ -59,26 +75,39 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/concierge"
-                className="glass text-on-surface font-medium text-label-md px-8 py-4 rounded-full inline-flex items-center gap-2 hover:bg-surface-c/80 transition-all"
+                className="inline-flex items-center gap-2 border border-on-surface/25 text-on-surface font-medium text-label-md px-8 py-4 rounded-xl hover:border-on-surface/50 hover:bg-white/5 transition-all duration-300"
               >
                 Private Consultation
               </Link>
             </div>
           </div>
         </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 scroll-indicator">
+          <div className="w-px h-8 bg-gradient-to-b from-on-surface-variant/50 to-transparent" />
+          <svg width="14" height="8" viewBox="0 0 14 8" fill="none" className="text-on-surface-variant/50">
+            <path d="M1 1L7 7L13 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </div>
       </section>
 
       {/* ─── Stats Bar ─────────────────────────────────────────────────────── */}
       <section className="bg-primary-container border-y border-outline-variant/20">
         <div className="max-w-7xl mx-auto px-6 py-10">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center shrink-0">
-                  <Icon size={18} className="text-secondary" />
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+            {stats.map(({ icon: Icon, value, label }, i) => (
+              <div
+                key={label}
+                className={`flex items-center gap-4 py-4 px-6 ${
+                  i < 3 ? "lg:border-r lg:border-outline-variant/20" : ""
+                } ${i < 2 ? "border-b lg:border-b-0 border-outline-variant/20" : ""}`}
+              >
+                <div className="w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
+                  <Icon size={18} className="text-gold" />
                 </div>
                 <div>
-                  <p className="font-serif text-headline-sm text-on-surface font-semibold">{value}</p>
+                  <p className="font-serif text-headline-lg text-gold font-semibold">{value}</p>
                   <p className="text-label-md text-outline">{label}</p>
                 </div>
               </div>
@@ -88,11 +117,11 @@ export default function HomePage() {
       </section>
 
       {/* ─── Featured Properties ────────────────────────────────────────────── */}
-      <section className="py-28 bg-surface">
+      <section className="py-36 bg-surface grain-overlay">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-end justify-between mb-14">
             <div>
-              <p className="text-label-lg text-secondary mb-3">EXCLUSIVE LISTINGS</p>
+              <p className="text-label-lg text-gold mb-3">EXCLUSIVE LISTINGS</p>
               <h2 className="font-serif text-display-md text-on-surface font-semibold">
                 Featured Properties
               </h2>
@@ -115,10 +144,10 @@ export default function HomePage() {
       </section>
 
       {/* ─── Services ───────────────────────────────────────────────────────── */}
-      <section className="py-28 bg-surface-c-low">
+      <section className="py-36 bg-surface-c-low">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-label-lg text-secondary mb-3">FULL-SPECTRUM EXPERTISE</p>
+            <p className="text-label-lg text-gold mb-3">FULL-SPECTRUM EXPERTISE</p>
             <h2 className="font-serif text-display-md text-on-surface font-semibold">
               How Nicole Can Help
             </h2>
@@ -148,11 +177,11 @@ export default function HomePage() {
               <Link
                 key={href}
                 href={href}
-                className="group glass-card rounded-2xl p-8 flex flex-col gap-5 hover:bg-surface-c-highest/80 transition-all duration-300 hover:-translate-y-1 shadow-card"
+                className="group glass-card rounded-2xl pt-12 pb-10 px-8 flex flex-col items-center text-center gap-5 hover:bg-surface-c-highest/80 transition-all duration-300 hover:-translate-y-1 shadow-card"
               >
-                <span className="text-4xl">{icon}</span>
+                <span className="text-6xl block">{icon}</span>
                 <div>
-                  <h3 className="font-serif text-headline-sm text-on-surface font-semibold mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-serif text-headline-sm text-on-surface font-semibold mb-3 group-hover:text-primary transition-colors">
                     {label}
                   </h3>
                   <p className="text-body-md text-on-surface-variant leading-relaxed">{desc}</p>
@@ -167,27 +196,30 @@ export default function HomePage() {
       </section>
 
       {/* ─── About Nicole ─────────────────────────────────────────────────── */}
-      <section className="py-28 bg-surface">
+      <section className="py-36 bg-surface grain-overlay">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-ambient">
-              <Image
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format"
-                alt="Nicole Shlass, Toronto Real Estate Agent"
-                fill
-                sizes="(max-width: 1024px) 100vw, 50vw"
-                className="object-cover object-top"
-              />
-              <div className="absolute bottom-6 left-6">
-                <div className="glass rounded-xl px-5 py-4">
-                  <p className="font-serif text-title-lg text-on-surface font-semibold">Nicole Shlass</p>
-                  <p className="text-label-md text-outline mt-0.5">Sales Representative</p>
+            {/* Photo with inset offset frame */}
+            <div className="relative p-4 rounded-2xl border border-secondary/15 shadow-ambient">
+              <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80&auto=format"
+                  alt="Nicole Shlass, Toronto Real Estate Agent"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-top"
+                />
+                <div className="absolute bottom-6 left-6">
+                  <div className="glass rounded-xl px-5 py-4">
+                    <p className="font-serif text-title-lg text-on-surface font-semibold">Nicole Shlass</p>
+                    <p className="text-label-md text-outline mt-0.5">Sales Representative</p>
+                  </div>
                 </div>
               </div>
             </div>
 
             <div className="flex flex-col gap-6">
-              <p className="text-label-lg text-secondary">THE AGENT BEHIND THE BRAND</p>
+              <p className="text-label-lg text-gold">THE AGENT BEHIND THE BRAND</p>
               <h2 className="font-serif text-display-md text-on-surface font-semibold">
                 Precision.<br />Discretion.<br />Results.
               </h2>

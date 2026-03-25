@@ -17,7 +17,10 @@ const company = [
 
 export function Footer() {
   return (
-    <footer className="bg-surface-c-lowest border-t border-outline-variant/15">
+    <footer className="bg-surface-c-lowest">
+      {/* Gradient top accent line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-secondary/35 to-transparent" />
+      <div className="border-t border-outline-variant/10">
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
@@ -111,6 +114,7 @@ export function Footer() {
             The Boulevard powered by Property.ca · Equal Housing Opportunity
           </p>
         </div>
+      </div>
       </div>
     </footer>
   );

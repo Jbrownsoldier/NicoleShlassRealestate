@@ -16,52 +16,52 @@ cinematic, editorial, immersive. Every interaction should feel considered.
 > This is the stage dressing. No motion yet — pure visual craft.
 
 ### 1.1 — Hero Section Overhaul
-- [ ] Darken the overlay gradient for more drama (push image contrast)
-- [ ] Add a thin horizontal rule above the eyebrow label ("TORONTO REAL ESTATE")
-- [ ] Increase hero headline size on desktop — push `text-display-lg` larger via clamp
-- [ ] Tighten headline letter-spacing (`tracking-tight` → custom `-0.03em`)
-- [ ] Add a subtle vertical text element on the right edge (e.g. "EST. 2011" rotated 90°)
-- [ ] Redesign the two CTA buttons: primary stays gradient pill, secondary becomes a ghost border button with a sharper radius
-- [ ] Add a thin animated scroll indicator at the bottom of the hero (a pulsing line or chevron)
-- [ ] Replace the hero Unsplash image with a darker, moodier Toronto architectural photo
+- [x] Darken the overlay gradient for more drama (push image contrast)
+- [x] Add a thin horizontal rule above the eyebrow label ("TORONTO REAL ESTATE")
+- [x] Increase hero headline size on desktop — push `text-display-lg` larger via clamp
+- [x] Tighten headline letter-spacing (`tracking-tight` → custom `-0.03em`)
+- [x] Add a subtle vertical text element on the right edge (e.g. "EST. 2011" rotated 90°)
+- [x] Redesign the two CTA buttons: primary stays gradient pill, secondary becomes a ghost border button with a sharper radius
+- [x] Add a thin animated scroll indicator at the bottom of the hero (a pulsing line or chevron)
+- [x] Replace the hero Unsplash image with a darker, moodier Toronto architectural photo
 
 ### 1.2 — Typography & Spacing System
-- [ ] Increase base body font size from `0.9375rem` to `1rem` globally
-- [ ] Add `font-feature-settings: "liga", "kern"` to the serif font for better ligatures
-- [ ] Increase section vertical padding from `py-28` to `py-36` on key sections for more breathing room
-- [ ] Make all eyebrow labels (`text-label-lg text-secondary`) use `letter-spacing: 0.18em` (wider than current)
-- [ ] Add an editorial divider style: a `1px` horizontal rule with a gradient fade on both ends
-- [ ] Review all `text-on-surface-variant` body copy — increase opacity slightly for readability
+- [x] Increase base body font size from `0.9375rem` to `1rem` globally
+- [x] Add `font-feature-settings: "liga", "kern"` to the serif font for better ligatures
+- [x] Increase section vertical padding from `py-28` to `py-36` on key sections for more breathing room
+- [x] Make all eyebrow labels (`text-label-lg text-secondary`) use `letter-spacing: 0.18em` (wider than current)
+- [x] Add an editorial divider style: a `1px` horizontal rule with a gradient fade on both ends
+- [x] Review all `text-on-surface-variant` body copy — increase opacity slightly for readability
 
 ### 1.3 — Property Card Redesign
-- [ ] Increase card image aspect ratio from `aspect-[4/3]` to `aspect-[3/2]` for wider, more cinematic feel
-- [ ] Redesign card info section: price on the left in a larger serif, beds/baths on the right in small caps
-- [ ] Add a thin top border accent in `secondary` color on card hover (slides in from left)
-- [ ] On hover: reveal a "View Property →" label that slides up from below the price
-- [ ] Make the status badge (New Listing, Featured) more refined — pill with a subtle glow
-- [ ] Add a subtle gradient overlay on the bottom third of every card image (always visible, not just on hover)
-- [ ] Increase the card shadow on hover for a more dramatic lift effect
+- [x] Increase card image aspect ratio from `aspect-[4/3]` to `aspect-[3/2]` for wider, more cinematic feel
+- [x] Redesign card info section: price on the left in a larger serif, beds/baths on the right in small caps
+- [x] Add a thin top border accent in `secondary` color on card hover (slides in from left)
+- [x] On hover: reveal a "View Property →" label that slides up from below the price
+- [x] Make the status badge (New Listing, Featured) more refined — pill with a subtle glow
+- [x] Add a subtle gradient overlay on the bottom third of every card image (always visible, not just on hover)
+- [x] Increase the card shadow on hover for a more dramatic lift effect
 
 ### 1.4 — Navigation Polish
-- [ ] On scroll, transition the nav background from transparent to a deeper glass effect (more opacity)
-- [ ] Add a subtle bottom border to the scrolled nav state (`border-b border-secondary/20`)
-- [ ] Make the active nav link use a small underline dot beneath it instead of just color change
-- [ ] Increase the "Concierge" CTA button in the nav to have a subtle border glow on hover
+- [x] On scroll, transition the nav background from transparent to a deeper glass effect (more opacity)
+- [x] Add a subtle bottom border to the scrolled nav state (`border-b border-secondary/20`)
+- [x] Make the active nav link use a small underline dot beneath it instead of just color change
+- [x] Increase the "Concierge" CTA button in the nav to have a subtle border glow on hover
 
 ### 1.5 — Section & Layout Improvements
-- [ ] Stats bar: Make each stat number use a larger serif, and add a thin vertical divider between items
-- [ ] Services cards: Redesign as taller, more portrait cards with the icon larger and centered at top
-- [ ] About section: Add a thin framed border treatment around Nicole's photo (inset offset frame)
+- [x] Stats bar: Make each stat number use a larger serif, and add a thin vertical divider between items
+- [x] Services cards: Redesign as taller, more portrait cards with the icon larger and centered at top
+- [x] About section: Add a thin framed border treatment around Nicole's photo (inset offset frame)
 - [ ] Testimonials (when re-added): Style as full-width editorial quotes with an oversized `"` mark
-- [ ] Footer: Add a thin top gradient line (secondary color) above the footer border
-- [ ] Add a globally consistent `<SectionDivider />` component — a centered diamond or thin line
+- [x] Footer: Add a thin top gradient line (secondary color) above the footer border
+- [x] Add a globally consistent `<SectionDivider />` component — a centered diamond or thin line
 
 ### 1.6 — Color & Surface Refinements
-- [ ] Add a `--color-gold: #C9A96E` token to globals.css for an optional accent
-- [ ] Apply gold accent to: stat values, section eyebrow labels (as an alternative to coral)
-- [ ] Add a very subtle noise/grain texture to `bg-surface` sections using a CSS `background-image` SVG filter
-- [ ] Increase the contrast of `glass-card` borders slightly for more definition on dark backgrounds
-- [ ] Review all `shadow-ambient` usage — make sure it's applied consistently to all floating elements
+- [x] Add a `--color-gold: #C9A96E` token to globals.css for an optional accent
+- [x] Apply gold accent to: stat values, section eyebrow labels (as an alternative to coral)
+- [x] Add a very subtle noise/grain texture to `bg-surface` sections using a CSS `background-image` SVG filter
+- [x] Increase the contrast of `glass-card` borders slightly for more definition on dark backgrounds
+- [x] Review all `shadow-ambient` usage — make sure it's applied consistently to all floating elements
 
 ---
 
