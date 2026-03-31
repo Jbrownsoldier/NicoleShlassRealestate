@@ -44,27 +44,27 @@ export default function HomePage() {
       <HeroSection />
 
       {/* ─── Stats Bar ─────────────────────────────────────────────────────── */}
-      <section className="bg-primary-container border-y border-outline-variant/20">
+      <section style={{ backgroundColor: "#161b33" }}>
         <div className="max-w-7xl mx-auto px-6 py-10">
           <StaggerChildren className="grid grid-cols-2 lg:grid-cols-4">
             {stats.map(({ icon: Icon, value, label }, i) => (
-              <StaggerItem
-                key={label}
-                className={`flex items-center gap-4 py-4 px-6 ${
-                  i < 3 ? "lg:border-r lg:border-outline-variant/20" : ""
-                } ${i < 2 ? "border-b lg:border-b-0 border-outline-variant/20" : ""}`}
-              >
-                <div className="relative w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
-                  <div className="absolute inset-0 rounded-full bg-gold/5 scale-[1.6] blur-sm pointer-events-none" />
-                  <div className="absolute inset-0 rounded-full border border-gold/15 scale-[1.3] pointer-events-none" />
-                  <Icon size={18} className="text-gold relative z-10" />
-                </div>
-                <div>
-                  <AnimatedStat
-                    value={value}
-                    className="font-serif text-headline-lg text-gradient-gold font-semibold"
-                  />
-                  <p className="text-label-md text-outline">{label}</p>
+              <StaggerItem key={label}>
+                <div
+                  className={`flex items-center gap-4 py-4 px-6 h-full ${
+                    i < 3 ? "lg:border-r" : ""
+                  } ${i < 2 ? "border-b lg:border-b-0" : ""}`}
+                  style={{ borderColor: "rgba(224,173,164,0.15)" }}
+                >
+                  <div className="relative w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(224,173,164,0.12)", border: "1px solid rgba(224,173,164,0.25)" }}>
+                    <Icon size={18} className="text-secondary relative z-10" />
+                  </div>
+                  <div>
+                    <AnimatedStat
+                      value={value}
+                      className="font-serif text-headline-lg text-secondary font-semibold"
+                    />
+                    <p className="text-label-md" style={{ color: "rgba(255,255,255,0.55)" }}>{label}</p>
+                  </div>
                 </div>
               </StaggerItem>
             ))}
@@ -77,7 +77,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-6">
           <RevealOnScroll className="flex items-end justify-between mb-14">
             <div>
-              <p className="text-label-lg text-gold mb-3">EXCLUSIVE LISTINGS</p>
+              <p className="text-label-lg text-secondary mb-3">EXCLUSIVE LISTINGS</p>
               <h2 className="font-serif text-display-md text-on-surface font-semibold">
                 Featured Properties
               </h2>
@@ -102,10 +102,10 @@ export default function HomePage() {
       </section>
 
       {/* ─── Services ───────────────────────────────────────────────────────── */}
-      <section className="py-36 bg-surface-c-low">
+      <section className="py-36 bg-surface-c-lowest">
         <div className="max-w-7xl mx-auto px-6">
           <RevealOnScroll className="text-center max-w-2xl mx-auto mb-16">
-            <p className="text-label-lg text-gold mb-3">FULL-SPECTRUM EXPERTISE</p>
+            <p className="text-label-lg text-secondary mb-3">FULL-SPECTRUM EXPERTISE</p>
             <h2 className="font-serif text-display-md text-on-surface font-semibold">
               How Nicole Can Help
             </h2>
@@ -135,16 +135,17 @@ export default function HomePage() {
               <StaggerItem key={href}>
                 <Link
                   href={href}
-                  className="group glass-card rounded-2xl pt-12 pb-10 px-8 flex flex-col items-center text-center gap-5 hover:bg-surface-c-highest/80 transition-all duration-300 hover:-translate-y-1 shadow-card h-full"
+                  className="group bg-white rounded-2xl pt-12 pb-10 px-8 flex flex-col items-center text-center gap-5 transition-all duration-300 hover:-translate-y-1 h-full shadow-card card-accent-border"
+                  style={{ border: "1px solid rgba(22,27,51,0.08)" }}
                 >
-                  <span className="font-serif text-[4rem] leading-none font-semibold text-gradient-gold opacity-50 group-hover:opacity-80 transition-opacity duration-300">{numeral}</span>
+                  <span className="font-serif text-[4rem] leading-none font-semibold text-secondary opacity-50 group-hover:opacity-90 transition-opacity duration-300">{numeral}</span>
                   <div>
                     <h3 className="font-serif text-headline-sm text-on-surface font-semibold mb-3 group-hover:text-primary transition-colors">
                       {label}
                     </h3>
                     <p className="text-body-md text-on-surface-variant leading-relaxed">{desc}</p>
                   </div>
-                  <span className="mt-auto text-label-md text-secondary flex items-center gap-1.5 group-hover:gap-2.5 transition-all">
+                  <span className="mt-auto text-label-md text-primary flex items-center gap-1.5 group-hover:gap-2.5 transition-all font-semibold">
                     Learn More <ArrowRight size={13} />
                   </span>
                 </Link>
@@ -185,11 +186,11 @@ export default function HomePage() {
               <div className="flex flex-col gap-6">
                 <div className="flex items-center gap-3 mb-1">
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
-                    <rect x="4" y="0" width="5.66" height="5.66" rx="0.5" transform="rotate(45 4 0)" fill="var(--color-gold)" fillOpacity="0.6" />
+                    <rect x="4" y="0" width="5.66" height="5.66" rx="0.5" transform="rotate(45 4 0)" fill="var(--color-secondary)" fillOpacity="0.6" />
                   </svg>
-                  <p className="text-label-lg text-gold">THE AGENT BEHIND THE BRAND</p>
+                  <p className="text-label-lg text-secondary">THE AGENT BEHIND THE BRAND</p>
                   <svg width="8" height="8" viewBox="0 0 8 8" fill="none" aria-hidden="true">
-                    <rect x="4" y="0" width="5.66" height="5.66" rx="0.5" transform="rotate(45 4 0)" fill="var(--color-gold)" fillOpacity="0.6" />
+                    <rect x="4" y="0" width="5.66" height="5.66" rx="0.5" transform="rotate(45 4 0)" fill="var(--color-secondary)" fillOpacity="0.6" />
                   </svg>
                 </div>
                 <h2 className="font-serif text-display-md text-on-surface font-semibold">
@@ -215,6 +216,47 @@ export default function HomePage() {
               </div>
             </RevealOnScroll>
           </div>
+        </div>
+      </section>
+
+      {/* ─── Newsletter ───────────────────────────────────────────────────── */}
+      <section className="py-20" style={{ backgroundColor: "#dddde3" }}>
+        <div className="max-w-2xl mx-auto px-6 text-center">
+          <RevealOnScroll>
+            <h2 className="font-serif text-headline-lg text-on-surface font-semibold mb-3">
+              Updates, New Listings &amp; Stay Connected
+            </h2>
+            <p className="text-body-md text-on-surface-variant mb-8">
+              Be the first to hear about new listings, market insights, and neighbourhood news across Toronto.
+            </p>
+            <form
+              className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto"
+              onSubmit={(e) => e.preventDefault()}
+            >
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 px-5 py-3.5 text-body-md text-on-surface outline-none focus:ring-2 focus:ring-primary/30"
+                style={{
+                  backgroundColor: "#dddde3",
+                  border: "1px solid #888892",
+                  borderRadius: "25px",
+                  color: "#2e2f3d",
+                }}
+              />
+              <button
+                type="submit"
+                className="px-7 py-3.5 text-label-md font-semibold whitespace-nowrap transition-all hover:opacity-85"
+                style={{
+                  backgroundColor: "#161b33",
+                  color: "#ffffff",
+                  borderRadius: "25px",
+                }}
+              >
+                Subscribe
+              </button>
+            </form>
+          </RevealOnScroll>
         </div>
       </section>
 
@@ -248,7 +290,7 @@ export default function HomePage() {
             </Link>
             <Link
               href="/properties"
-              className="glass text-on-surface font-medium text-label-md px-8 py-4 rounded-full inline-flex items-center gap-2 hover:bg-surface-c/80 transition-all"
+              className="inline-flex items-center gap-2 font-medium text-label-md px-8 py-4 rounded-full transition-all border border-white/40 text-white hover:border-secondary hover:bg-secondary/10 backdrop-blur-sm"
             >
               Browse Properties
             </Link>

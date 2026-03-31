@@ -30,8 +30,8 @@ function NavLink({
         "text-[0.95rem] font-medium tracking-[0.015em]",
         "transition-colors duration-200",
         active
-          ? "text-on-surface"
-          : "text-on-surface-variant/70 hover:text-on-surface",
+          ? "text-primary"
+          : "text-primary/60 hover:text-primary",
       )}
     >
       {children}
@@ -45,7 +45,7 @@ function NavLink({
             ? "scale-x-0"                          // active uses the layoutId pill instead
             : "scale-x-0 group-hover/link:scale-x-100",
         )}
-        style={{ background: "rgba(240,185,179,0.45)" }}
+        style={{ background: "rgba(224,173,164,0.55)" }}
       />
 
       {/* Active indicator — gold → secondary gradient */}
@@ -54,7 +54,7 @@ function NavLink({
           layoutId="nav-pill"
           className="absolute inset-x-3 -bottom-px h-[1.5px] rounded-full"
           style={{
-            background: "linear-gradient(to right, var(--color-gold), var(--color-secondary))",
+            background: "#E0ADA4",
           }}
           transition={{ type: "spring", stiffness: 400, damping: 32 }}
         />
@@ -114,10 +114,8 @@ export function Nav() {
         animate={{ y: hidden && !open ? "-100%" : "0%" }}
         transition={{ duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
         className={cn(
-          "fixed top-0 inset-x-0 z-50 will-change-transform",
-          scrolled
-            ? "glass-deep shadow-ambient border-b border-outline-variant/15 nav-accent-scrolled"
-            : "bg-transparent",
+          "fixed top-0 inset-x-0 z-50 will-change-transform bg-white border-b border-outline-variant/30",
+          scrolled ? "shadow-ambient nav-accent-scrolled" : "shadow-sm",
         )}
       >
         <nav className={cn(
@@ -134,7 +132,7 @@ export function Nav() {
             <Link href="/" className="flex items-center gap-3 leading-none group shrink-0">
               <NSMonogram
                 size={30}
-                className="text-on-surface transition-colors duration-300 group-hover:text-gold shrink-0"
+                className="text-on-surface transition-colors duration-300 group-hover:text-secondary shrink-0"
               />
               {/* Vertical rule */}
               <span
@@ -142,7 +140,7 @@ export function Nav() {
                 style={{ background: "linear-gradient(to bottom, transparent, rgba(145,144,152,0.35) 40%, rgba(145,144,152,0.35) 60%, transparent)" }}
               />
               <div className="flex flex-col leading-none gap-0.5">
-                <span className="font-serif text-on-surface text-[1.05rem] font-semibold tracking-tight group-hover:text-gold transition-colors duration-300">
+                <span className="font-serif text-on-surface text-[1.05rem] font-semibold tracking-tight group-hover:text-secondary transition-colors duration-300">
                   Nicole Shlass
                 </span>
                 <span className="text-[0.6rem] text-outline tracking-[0.22em] uppercase">
@@ -188,7 +186,7 @@ export function Nav() {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 8 }}
                   transition={{ duration: 0.25 }}
-                  className="flex items-center gap-1.5 text-outline hover:text-on-surface-variant transition-colors text-[0.72rem] tracking-wide font-medium"
+                  className="flex items-center gap-1.5 text-primary/50 hover:text-primary transition-colors text-[0.72rem] tracking-wide font-medium"
                 >
                   <Phone size={11} strokeWidth={2.2} />
                   {PHONE_DISPLAY}
@@ -199,7 +197,8 @@ export function Nav() {
             {/* Concierge CTA */}
             <Link
               href="/concierge"
-              className="shimmer gradient-cta text-on-secondary text-label-md font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:opacity-90 hover:shadow-[0_0_24px_-4px_rgba(240,185,179,0.55)]"
+              className="text-label-md font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:opacity-85"
+              style={{ backgroundColor: "#161b33", color: "#ffffff" }}
             >
               Concierge
             </Link>
@@ -260,14 +259,14 @@ export function Nav() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 220 }}
-              className="fixed top-0 right-0 z-50 h-full w-[min(320px,85vw)] md:hidden glass-deep flex flex-col"
+              className="fixed top-0 right-0 z-50 h-full w-[min(320px,85vw)] md:hidden flex flex-col bg-white border-l border-outline-variant/20"
             >
               {/* Top bar */}
               <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-outline-variant/12">
                 <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5 group">
-                  <NSMonogram size={22} className="text-on-surface-variant group-hover:text-gold transition-colors duration-200 shrink-0" />
+                  <NSMonogram size={22} className="text-on-surface-variant group-hover:text-secondary transition-colors duration-200 shrink-0" />
                   <div className="flex flex-col leading-none gap-0.5">
-                    <span className="font-serif text-on-surface text-sm font-semibold group-hover:text-gold transition-colors duration-200">Nicole Shlass</span>
+                    <span className="font-serif text-on-surface text-sm font-semibold group-hover:text-secondary transition-colors duration-200">Nicole Shlass</span>
                     <span className="text-[0.55rem] text-outline tracking-[0.2em] uppercase">Real Estate</span>
                   </div>
                 </Link>
@@ -296,15 +295,15 @@ export function Nav() {
                         className={cn(
                           "flex items-center justify-between px-4 py-3.5 rounded-xl text-title-md transition-all duration-200",
                           active
-                            ? "bg-white/[0.06] text-on-surface"
-                            : "text-on-surface-variant hover:bg-white/[0.04] hover:text-on-surface",
+                            ? "bg-primary/8 text-primary font-semibold"
+                            : "text-primary/60 hover:bg-surface-c-low hover:text-primary",
                         )}
                       >
                         {label}
                         {active && (
                           <span
                             className="w-1.5 h-1.5 rounded-full shrink-0"
-                            style={{ background: "linear-gradient(135deg, var(--color-gold), var(--color-secondary))" }}
+                            style={{ background: "#E0ADA4" }}
                           />
                         )}
                       </Link>
@@ -322,7 +321,8 @@ export function Nav() {
                 >
                   <Link
                     href="/concierge"
-                    className="shimmer gradient-cta text-on-secondary text-label-md font-semibold px-6 py-3.5 rounded-full text-center block hover:opacity-90 transition-opacity"
+                    className="text-label-md font-semibold px-6 py-3.5 rounded-full text-center block hover:opacity-85 transition-opacity"
+                    style={{ backgroundColor: "#161b33", color: "#ffffff" }}
                   >
                     Book a Consultation
                   </Link>
@@ -332,7 +332,8 @@ export function Nav() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.34 }}
-                  className="flex items-center justify-center gap-2 py-3 rounded-full border border-outline-variant/20 text-on-surface-variant hover:text-on-surface hover:border-outline-variant/40 transition-all text-label-md"
+                  className="flex items-center justify-center gap-2 py-3 rounded-full border text-label-md transition-all"
+                  style={{ borderColor: "rgba(22,27,51,0.2)", color: "#161b33" }}
                 >
                   <Phone size={13} strokeWidth={2} />
                   {PHONE_DISPLAY}

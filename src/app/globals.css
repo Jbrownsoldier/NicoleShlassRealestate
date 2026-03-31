@@ -1,46 +1,52 @@
 @import "tailwindcss";
 
-/* ─── Bespoke Vista Design System ─────────────────────────────────────────── */
+/* ─── Nicole Shlass Brand Design System ────────────────────────────────────── */
 
 @theme inline {
-  --font-serif: var(--font-noto-serif);
-  --font-sans:  var(--font-manrope);
+  --font-serif: var(--font-cardo);
+  --font-sans:  var(--font-inter);
 
-  /* Surface tiers */
-  --color-surface:                  #121415;
-  --color-surface-dim:              #121415;
-  --color-surface-bright:           #38393A;
-  --color-surface-c-lowest:         #0D0E0F;
-  --color-surface-c-low:            #1A1C1D;
-  --color-surface-c:                #1E2021;
-  --color-surface-c-high:           #282A2B;
-  --color-surface-c-highest:        #333536;
+  /* Surface tiers — light theme */
+  --color-surface:                  #FFFFFF;
+  --color-surface-dim:              #F4F4F4;
+  --color-surface-bright:           #FFFFFF;
+  --color-surface-c-lowest:         #F4F4F4;
+  --color-surface-c-low:            #EFEFEF;
+  --color-surface-c:                #E8E8EC;
+  --color-surface-c-high:           #dddde3;
+  --color-surface-c-highest:        #D0D0D8;
 
-  /* Brand colors */
-  --color-primary:                  #C1C5E5;
-  --color-primary-container:        #161B33;
-  --color-on-primary:               #2A2F48;
-  --color-on-primary-container:     #7E83A0;
+  /* Brand colors — navy primary */
+  --color-primary:                  #161b33;
+  --color-primary-deep:             #0C0E1B;
+  --color-primary-container:        #E9E9E9;
+  --color-on-primary:               #FFFFFF;
+  --color-on-primary-container:     #161b33;
 
-  --color-secondary:                #F0B9B3;
-  --color-secondary-container:      #633C38;
-  --color-on-secondary:             #492723;
-  --color-on-secondary-container:   #DDA8A2;
+  /* Gold remapped to brand mauve — Nicole has no gold */
+  --color-gold:                     #E0ADA4;
 
-  --color-tertiary:                 #F2B9AB;
-  --color-tertiary-container:       #32140C;
-  --color-on-tertiary:              #4A271E;
+  /* Accent — warm mauve (buttons, highlights, borders, nav hover) */
+  --color-secondary:                #E0ADA4;
+  --color-secondary-container:      #F9EDEB;
+  --color-on-secondary:             #161b33;
+  --color-on-secondary-container:   #161b33;
+
+  /* Error / close hover only */
+  --color-error-accent:             #ff0000;
+
+  /* Dark card hover surface */
+  --color-tertiary:                 #292A41;
+  --color-tertiary-container:       #2e2f3d;
+  --color-on-tertiary:              #FFFFFF;
 
   /* Content colors */
-  --color-on-surface:               #E2E2E3;
-  --color-on-surface-variant:       #CECDD5;
-  --color-outline:                  #919098;
-  --color-outline-variant:          #46464D;
-  --color-error:                    #FFB4AB;
-  --color-inverse-surface:          #E2E2E3;
-
-  /* Gold accent */
-  --color-gold:                     #C9A96E;
+  --color-on-surface:               #2e2f3d;
+  --color-on-surface-variant:       #5a5b6a;
+  --color-outline:                  #888892;
+  --color-outline-variant:          #dddde3;
+  --color-error:                    #cc0000;
+  --color-inverse-surface:          #161b33;
 
   /* Border radius */
   --radius-sm:   0.25rem;
@@ -62,9 +68,9 @@ html {
 }
 
 body {
-  background-color: #121415;
-  color: #E2E2E3;
-  font-family: var(--font-manrope), system-ui, sans-serif;
+  background-color: #FFFFFF;
+  color: #2e2f3d;
+  font-family: var(--font-inter), system-ui, sans-serif;
   line-height: 1.65;
   font-size: 1rem;
 }
@@ -89,52 +95,52 @@ body {
 .text-label-md    { font-size: 0.75rem;  line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase; }
 .text-label-sm    { font-size: 0.6875rem;line-height: 1.4; letter-spacing: 0.1em;  text-transform: uppercase; }
 
-/* ─── Glassmorphism ─────────────────────────────────────────────────────── */
+/* ─── Glassmorphism — light theme ───────────────────────────────────────── */
 
 .glass {
-  background: rgba(18, 20, 21, 0.78);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(70, 70, 77, 0.18);
+  border: 1px solid rgba(22, 27, 51, 0.10);
 }
 
 .glass-mid {
-  background: rgba(30, 32, 33, 0.70);
+  background: rgba(244, 244, 244, 0.80);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(145, 144, 152, 0.10);
+  border: 1px solid rgba(22, 27, 51, 0.08);
 }
 
 .glass-card {
-  background: rgba(40, 42, 43, 0.60);
+  background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(193, 197, 229, 0.14);
+  border: 1px solid rgba(22, 27, 51, 0.10);
 }
 
 .glass-deep {
-  background: rgba(10, 11, 12, 0.92);
+  background: rgba(248, 248, 250, 0.94);
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-  border: 1px solid rgba(70, 70, 77, 0.22);
+  border: 1px solid rgba(22, 27, 51, 0.12);
 }
 
 /* ─── Gradient helpers ──────────────────────────────────────────────────── */
 
 .gradient-cta {
-  background: linear-gradient(135deg, #F0B9B3 0%, #F2B9AB 100%);
+  background: #161b33;
 }
 
 .gradient-cta-hover:hover {
-  background: linear-gradient(135deg, #f5c8c3 0%, #f5c5b9 100%);
+  background: #0c0e1b;
 }
 
 .gradient-overlay-bottom {
   background: linear-gradient(
     to top,
-    rgba(8,6,10,0.98) 0%,
-    rgba(8,6,10,0.70) 35%,
-    rgba(8,6,10,0.18) 65%,
+    rgba(22,27,51,0.90) 0%,
+    rgba(22,27,51,0.55) 35%,
+    rgba(22,27,51,0.12) 65%,
     transparent 100%
   );
 }
@@ -142,34 +148,34 @@ body {
 .gradient-overlay-full {
   background: linear-gradient(
     160deg,
-    rgba(12,14,30,0.92) 0%,
-    rgba(18,20,21,0.65) 60%,
-    rgba(18,20,21,0.15) 100%
+    rgba(22,27,51,0.88) 0%,
+    rgba(22,27,51,0.50) 60%,
+    rgba(22,27,51,0.08) 100%
   );
 }
 
-/* ─── Ambient shadows ───────────────────────────────────────────────────── */
+/* ─── Ambient shadows — light theme ────────────────────────────────────── */
 
 .shadow-ambient {
   box-shadow:
-    0 24px 64px -12px rgba(22,27,51,0.45),
-    0 8px 24px  -4px rgba(12,10,15,0.3);
+    0 24px 64px -12px rgba(22,27,51,0.12),
+    0 8px 24px  -4px rgba(22,27,51,0.08);
 }
 
 .shadow-card {
   box-shadow:
-    0 8px 40px -6px rgba(12,10,15,0.5),
-    0 2px 12px -2px rgba(12,10,15,0.4);
+    0 8px 40px -6px rgba(22,27,51,0.10),
+    0 2px 12px -2px rgba(22,27,51,0.07);
 }
 
 .shadow-glow {
-  box-shadow: 0 0 40px -8px rgba(193,197,229,0.15);
+  box-shadow: 0 0 40px -8px rgba(22,27,51,0.18);
 }
 
 /* ─── Ghost border ──────────────────────────────────────────────────────── */
 
 .ghost-border {
-  border: 1px solid rgba(70, 70, 77, 0.15);
+  border: 1px solid rgba(22, 27, 51, 0.12);
 }
 
 .perspective-1000 {
@@ -185,21 +191,21 @@ body {
 /* ─── Scrollbar ─────────────────────────────────────────────────────────── */
 
 ::-webkit-scrollbar        { width: 5px; height: 5px; }
-::-webkit-scrollbar-track  { background: #0D0E0F; }
-::-webkit-scrollbar-thumb  { background: #46464D; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #919098; }
+::-webkit-scrollbar-track  { background: #F4F4F4; }
+::-webkit-scrollbar-thumb  { background: #dddde3; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #888892; }
 
 /* ─── Selection ─────────────────────────────────────────────────────────── */
 
 ::selection {
-  background: rgba(193, 197, 229, 0.2);
-  color: #E2E2E3;
+  background: rgba(22, 27, 51, 0.12);
+  color: #161b33;
 }
 
 /* ─── Focus ring ────────────────────────────────────────────────────────── */
 
 :focus-visible {
-  outline: 2px solid rgba(193, 197, 229, 0.6);
+  outline: 2px solid rgba(22, 27, 51, 0.5);
   outline-offset: 3px;
 }
 
@@ -211,8 +217,8 @@ body {
   background: linear-gradient(
     to right,
     transparent,
-    rgba(193, 197, 229, 0.18) 25%,
-    rgba(193, 197, 229, 0.18) 75%,
+    rgba(22, 27, 51, 0.15) 25%,
+    rgba(22, 27, 51, 0.15) 75%,
     transparent
   );
 }
@@ -229,8 +235,8 @@ body {
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.38;
-  mix-blend-mode: overlay;
+  opacity: 0.25;
+  mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");
 }
 
@@ -283,10 +289,10 @@ body {
   animation-duration: 1.2s;
 }
 
-/* ─── Gold gradient text ────────────────────────────────────────────────── */
+/* ─── Accent gradient text ──────────────────────────────────────────────── */
 
 .text-gradient-gold {
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(135deg, #E0ADA4 0%, #c8958b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -316,12 +322,12 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 1px;
+  height: 2px;
   background: linear-gradient(
     to right,
     transparent 0%,
-    var(--color-gold) 25%,
-    var(--color-secondary) 60%,
+    #E0ADA4 25%,
+    #161b33 75%,
     transparent 100%
   );
   pointer-events: none;
@@ -341,7 +347,7 @@ body {
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--color-secondary);
+  background: #E0ADA4;
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.4s ease;
@@ -349,4 +355,21 @@ body {
 
 .card-accent-border:hover::before {
   transform: scaleX(1);
+}
+
+/* ─── Mauve hover utility ───────────────────────────────────────────────── */
+
+.hover-accent:hover {
+  color: #E0ADA4 !important;
+  transition: color 0.2s ease;
+}
+
+/* ─── Navy gradient text ────────────────────────────────────────────────── */
+
+.text-gradient-navy {
+  background: linear-gradient(135deg, #161b33 0%, #292A41 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
 }

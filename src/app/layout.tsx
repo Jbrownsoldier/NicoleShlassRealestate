@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Noto_Serif, Manrope } from "next/font/google";
+import { Cardo, Inter } from "next/font/google";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/layout/PageTransition";
 import "./globals.css";
 
-const notoSerif = Noto_Serif({
-  variable: "--font-noto-serif",
+const cardo = Cardo({
+  variable: "--font-cardo",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "700"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
@@ -96,7 +96,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${notoSerif.variable} ${manrope.variable} h-full`}
+      className={`${cardo.variable} ${inter.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-surface text-on-surface antialiased">
         <ClientUI />

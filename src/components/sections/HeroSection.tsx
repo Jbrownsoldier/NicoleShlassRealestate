@@ -127,7 +127,7 @@ export function HeroSection() {
             <MagneticButton strength={25}>
               <Link
                 href="/concierge"
-                className="inline-flex items-center gap-2.5 border border-on-surface/20 text-on-surface font-medium text-label-md px-8 py-4.5 rounded-full hover:border-secondary/40 hover:bg-secondary/5 transition-all duration-300 backdrop-blur-sm"
+                className="inline-flex items-center gap-2.5 border border-white/40 text-white font-medium text-label-md px-8 py-4.5 rounded-full hover:border-secondary hover:bg-secondary/10 transition-all duration-300 backdrop-blur-sm"
               >
                 Private Consultation
                 <MousePointer2 size={14} className="text-secondary opacity-60" />
@@ -144,9 +144,9 @@ export function HeroSection() {
         transition={{ duration: 1.1, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
         className="absolute right-8 bottom-32 lg:right-16 lg:bottom-40 animate-float z-10 hidden sm:block"
       >
-        <div className="glass rounded-full px-5 py-3 flex items-center gap-3 border border-gold/20 shadow-[0_0_24px_-6px_rgba(201,169,110,0.3)]">
-          <div className="w-1.5 h-1.5 rounded-full bg-gold animate-pulse" />
-          <span className="text-label-sm text-gold tracking-[0.15em]">TOP TORONTO AGENT</span>
+        <div className="glass rounded-full px-5 py-3 flex items-center gap-3 border border-secondary/25 shadow-[0_0_24px_-6px_rgba(224,173,164,0.35)]">
+          <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
+          <span className="text-label-sm text-secondary tracking-[0.15em]">TOP TORONTO AGENT</span>
         </div>
       </motion.div>
 

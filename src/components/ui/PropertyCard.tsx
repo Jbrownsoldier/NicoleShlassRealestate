@@ -76,8 +76,9 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
         href={`/properties/${id}`}
         className={cn(
           "group relative flex flex-col h-full rounded-2xl overflow-hidden",
-          "ghost-border card-accent-border transition-all duration-500",
-          "hover:shadow-[0_40px_80px_-15px_rgba(8,6,10,0.8),0_12px_32px_-8px_rgba(8,6,10,0.6)]",
+          "card-accent-border transition-all duration-500 shadow-card",
+          "border border-outline-variant",
+          "hover:shadow-[0_20px_48px_-10px_rgba(22,27,51,0.18),0_8px_24px_-6px_rgba(22,27,51,0.12)]",
         )}
       >
         <motion.div
@@ -157,7 +158,7 @@ export function PropertyCard({ property, className }: PropertyCardProps) {
 
           {/* Content */}
           <div
-            className="flex flex-col gap-3 p-6 bg-surface-c-high flex-1"
+            className="flex flex-col gap-3 p-6 bg-white flex-1"
             style={{ transform: "translateZ(30px)" }}
           >
             <div>
