@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Nicole Shlass",
   description:
-    "Nicole Shlass is a Toronto Sales Representative known for her responsiveness, honesty, and genuine commitment to her clients. 14 years of experience across Toronto and the GTA.",
+    "Nicole Shlass is a Toronto Sales Representative known for her responsiveness, honesty, and genuine commitment to her clients. 14 years of experience across Toronto.",
   alternates: { canonical: "https://nicoleshlass.ca/about" },
   openGraph: {
     title: "About Nicole Shlass — Toronto Sales Representative",

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Camera, BarChart3, Globe, CheckCircle } from "lucide-react";
+import { SoldPropertiesCarousel } from "@/components/ui/SoldPropertiesCarousel";
+import { properties } from "@/data/properties";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -116,6 +118,17 @@ export default function SellingPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Recent Successes */}
+      <section className="pt-28 pb-10 bg-surface overflow-hidden border-t border-outline-variant/10">
+        <div className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
+          <p className="text-label-lg text-secondary mb-3">PROVEN TRACK RECORD</p>
+          <h2 className="font-serif text-headline-lg text-on-surface font-semibold">
+            Recent Sales Portfolio
+          </h2>
+        </div>
+        <SoldPropertiesCarousel properties={properties} />
       </section>
 
       {/* CTA */}

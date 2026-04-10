@@ -11,24 +11,23 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Nicole Shlass — Toronto Real Estate Agent",
   description:
-    "Toronto real estate agent helping first-time buyers, upsizers, and families find homes that fit their life. Buying, selling, and leasing across Toronto and the GTA.",
+    "Toronto real estate agent helping first-time buyers, upsizers, and families find homes that fit their life. Buying, selling, and leasing exclusively across Toronto.",
   alternates: { canonical: "https://nicoleshlass.ca" },
   openGraph: {
     title: "Nicole Shlass — Toronto Real Estate Agent",
     description:
-      "Responsive, honest, and committed to finding you a home that truly fits your life. Browse exclusive listings across Toronto and the GTA.",
+      "Responsive, honest, and committed to finding you a home that truly fits your life. Browse exclusive listings across Toronto.",
     url: "https://nicoleshlass.ca",
   },
   twitter: {
     title: "Nicole Shlass — Toronto Real Estate Agent",
     description:
-      "Responsive, honest, and committed to finding you a home that truly fits your life. Browse exclusive listings across Toronto and the GTA.",
+      "Responsive, honest, and committed to finding you a home that truly fits your life. Browse exclusive listings across Toronto.",
   },
 };
 
 const stats = [
   { icon: Award,      value: "14",   suffix: " Yrs", label: "Of Experience" },
-  { icon: Users,      value: "10+",  suffix: " Yrs",  label: "In Toronto Real Estate" },
   { icon: TrendingUp, value: "416",                  label: "Area Specialist" },
   { icon: Star,       value: "100%",                 label: "Client Satisfaction" },
 ];
@@ -46,13 +45,13 @@ export default function HomePage() {
       {/* ─── Stats Bar ─────────────────────────────────────────────────────── */}
       <section className="bg-primary-container border-y border-outline-variant/20">
         <div className="max-w-7xl mx-auto px-6 py-10">
-          <StaggerChildren className="grid grid-cols-2 lg:grid-cols-4">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3">
             {stats.map(({ icon: Icon, value, label }, i) => (
               <StaggerItem
                 key={label}
-                className={`flex items-center gap-4 py-4 px-6 ${
-                  i < 3 ? "lg:border-r lg:border-outline-variant/20" : ""
-                } ${i < 2 ? "border-b lg:border-b-0 border-outline-variant/20" : ""}`}
+                className={`flex items-center gap-4 py-4 px-6 md:justify-center ${
+                  i < 2 ? "md:border-r md:border-outline-variant/20" : ""
+                } ${i < 2 ? "border-b md:border-b-0 border-outline-variant/20" : ""}`}
               >
                 <div className="relative w-10 h-10 rounded-full bg-gold/10 flex items-center justify-center shrink-0">
                   <div className="absolute inset-0 rounded-full bg-gold/5 scale-[1.6] blur-sm pointer-events-none" />
@@ -158,22 +157,38 @@ export default function HomePage() {
       <section className="py-36 bg-surface grain-overlay">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Photo */}
+            {/* Photos */}
             <RevealOnScroll>
-              <div className="relative p-4 rounded-2xl border border-secondary/15 shadow-ambient">
-                <div className="relative aspect-[4/5] rounded-xl overflow-hidden">
-                  <Image
-                    src="/nicole1.jpg"
-                    alt="Nicole Shlass, Toronto Real Estate Agent"
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover object-top"
-                  />
-                  <div className="absolute bottom-6 left-6">
-                    <div className="glass rounded-xl px-5 py-4">
-                      <p className="font-serif text-title-lg text-on-surface font-semibold">Nicole Shlass</p>
-                      <p className="text-label-md text-outline mt-0.5">Sales Representative</p>
+              <div className="relative w-full aspect-square lg:aspect-[4/5] min-h-[500px]">
+                {/* Main Photo */}
+                <div className="absolute top-0 left-0 w-[80%] h-[85%] p-3 rounded-2xl border border-secondary/15 shadow-ambient z-10 bg-surface">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden">
+                    <Image
+                      src="/nicole1.jpg"
+                      alt="Nicole Shlass, Toronto Real Estate Agent"
+                      fill
+                      priority
+                      sizes="(max-width: 1024px) 80vw, 40vw"
+                      className="object-cover object-top"
+                    />
+                  </div>
+                </div>
+                
+                {/* Secondary Photo */}
+                <div className="absolute bottom-0 right-0 w-[60%] h-[65%] p-3 rounded-2xl border border-secondary/15 shadow-2xl z-20 bg-surface">
+                  <div className="relative w-full h-full rounded-xl overflow-hidden">
+                    <Image
+                      src="/nicole-homepage.jpg"
+                      alt="Nicole Shlass Real Estate"
+                      fill
+                      sizes="(max-width: 1024px) 60vw, 30vw"
+                      className="object-cover object-center"
+                    />
+                    <div className="absolute bottom-4 left-4">
+                      <div className="glass rounded-xl px-4 py-3 scale-90 origin-bottom-left">
+                        <p className="font-serif text-title-md text-on-surface font-semibold">Nicole Shlass</p>
+                        <p className="text-label-sm text-outline mt-0.5">Sales Representative</p>
+                      </div>
                     </div>
                   </div>
                 </div>

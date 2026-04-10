@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Nicole Shlass Real Estate",
   },
   description:
-    "Nicole Shlass is a Toronto Sales Representative helping first-time buyers, upsizers, and families find homes that truly fit their life. Buying, selling, and leasing across Toronto and the GTA.",
+    "Nicole Shlass is a Toronto Sales Representative helping first-time buyers, upsizers, and families find homes that truly fit their life. Buying, selling, and leasing exclusively across Toronto.",
   keywords: [
     "Nicole Shlass realtor",
     "Nicole Shlass real estate",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     "Toronto realtor",
     "Toronto homes for sale",
     "first time home buyer Toronto",
-    "GTA real estate agent",
+    "Toronto premium real estate agent",
     "Toronto condos for sale",
     "Toronto homes for lease",
     "Toronto buyer agent",

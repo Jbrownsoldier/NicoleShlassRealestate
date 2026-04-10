@@ -86,46 +86,62 @@ export default function AboutPage() {
 
       {/* Story */}
       <section className="py-28 bg-surface grain-overlay">
-        <div className="max-w-3xl mx-auto px-6">
-          <RevealOnScroll className="mb-14">
-            <p className="text-label-lg text-secondary mb-5">HER STORY</p>
-            <h2 className="font-serif text-headline-lg text-on-surface font-semibold">
-              Built on Trust. Defined by Results.
-            </h2>
-          </RevealOnScroll>
-          <StaggerChildren className="space-y-6 text-body-lg text-on-surface-variant leading-relaxed">
-            <StaggerItem>
-              <p>
-                Real estate isn&apos;t just about buying and selling homes, it&apos;s about people, 
-                relationships, and life changing transitions. I&apos;m a natural people person 
-                and a bit of a relentless question asker, which helps me get to the heart of 
-                what truly matters to you. I prioritize transparency, dependability, and a 
-                customized approach for every client, making sure you always feel informed, 
-                supported, and confident every step of the way. My goal is to make the process 
-                feel clear, collaborative, and even enjoyable, because this isn&apos;t just 
-                a transaction, it&apos;s a big moment in your life.
-              </p>
-            </StaggerItem>
-            <StaggerItem>
-              <p>
-                I started my career working with first time buyers in the condo market, and as 
-                my clients grew, so did my focus, naturally evolving into helping people move 
-                into homes that better match their lifestyle and long term goals. One of my 
-                favourite parts of this job is growing alongside my clients and being part 
-                of that journey.
-              </p>
-            </StaggerItem>
-            <StaggerItem>
-              <p>
-                Outside of work, family is a huge part of my life. I spend time caring for my 
-                dad and love being &ldquo;Auntie Nikki&rdquo; to my friends&rsquo; kids, which 
-                keeps me grounded and reminds me why finding the right home truly matters. 
-                I&apos;m here to guide you with honesty, responsiveness, and a genuine commitment 
-                to getting you the information you need fast, so you can move forward with 
-                confidence and clarity.
-              </p>
-            </StaggerItem>
-          </StaggerChildren>
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            <div className="max-w-xl">
+              <RevealOnScroll className="mb-14">
+                <p className="text-label-lg text-secondary mb-5">HER STORY</p>
+                <h2 className="font-serif text-headline-lg text-on-surface font-semibold">
+                  Built on Trust. Defined by Results.
+                </h2>
+              </RevealOnScroll>
+              <StaggerChildren className="space-y-6 text-body-lg text-on-surface-variant leading-relaxed">
+                <StaggerItem>
+                  <p>
+                    Real estate isn&apos;t just about buying and selling homes, it&apos;s about people, 
+                    relationships, and life changing transitions. I&apos;m a natural people person 
+                    and a bit of a relentless question asker, which helps me get to the heart of 
+                    what truly matters to you. I prioritize transparency, dependability, and a 
+                    customized approach for every client, making sure you always feel informed, 
+                    supported, and confident every step of the way. My goal is to make the process 
+                    feel clear, collaborative, and even enjoyable, because this isn&apos;t just 
+                    a transaction, it&apos;s a big moment in your life.
+                  </p>
+                </StaggerItem>
+                <StaggerItem>
+                  <p>
+                    I started my career working with first time buyers in the condo market, and as 
+                    my clients grew, so did my focus, naturally evolving into helping people move 
+                    into homes that better match their lifestyle and long term goals. One of my 
+                    favourite parts of this job is growing alongside my clients and being part 
+                    of that journey.
+                  </p>
+                </StaggerItem>
+                <StaggerItem>
+                  <p>
+                    Outside of work, family is a huge part of my life. I spend time caring for my 
+                    dad and love being &ldquo;Auntie Nikki&rdquo; to my friends&rsquo; kids, which 
+                    keeps me grounded and reminds me why finding the right home truly matters. 
+                    I&apos;m here to guide you with honesty, responsiveness, and a genuine commitment 
+                    to getting you the information you need fast, so you can move forward with 
+                    confidence and clarity.
+                  </p>
+                </StaggerItem>
+              </StaggerChildren>
+            </div>
+            
+            <RevealOnScroll direction="right" className="relative lg:mt-12 h-full min-h-[500px]">
+              <div className="sticky top-24 w-full h-full lg:h-[700px] rounded-2xl overflow-hidden shadow-ambient">
+                <Image
+                  src="/nicole-about.jpg"
+                  alt="Nicole Shlass, Toronto Agent"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            </RevealOnScroll>
+          </div>
         </div>
       </section>
 

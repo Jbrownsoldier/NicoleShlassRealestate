@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Search, FileCheck, Key, Handshake } from "lucide-react";
+import { SoldPropertiesCarousel } from "@/components/ui/SoldPropertiesCarousel";
+import { properties } from "@/data/properties";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Buying a Home in Toronto",
   description:
-    "Work with Nicole Shlass for expert buyer representation, strategic negotiation, and honest guidance throughout your home purchase across Toronto and the GTA.",
+    "Work with Nicole Shlass for expert buyer representation, strategic negotiation, and honest guidance throughout your home purchase exclusively across Toronto.",
   alternates: { canonical: "https://nicoleshlass.ca/buying" },
   openGraph: {
     title: "Buying a Home in Toronto — Nicole Shlass",
@@ -104,6 +106,17 @@ export default function BuyingPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Recent Successes */}
+      <section className="py-28 bg-surface-c-low overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 mb-12 text-center md:text-left">
+          <p className="text-label-lg text-secondary mb-3">RECENT SUCCESSES</p>
+          <h2 className="font-serif text-headline-lg text-on-surface font-semibold">
+            Homes Secured for Buyers
+          </h2>
+        </div>
+        <SoldPropertiesCarousel properties={properties} />
       </section>
 
       {/* Why Nicole */}
