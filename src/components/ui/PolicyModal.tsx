@@ -1,8 +1,8 @@
 "use client";
 
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
-import { useEffect } from "react";
 
 interface PolicyModalProps {
   isOpen: boolean;
@@ -82,9 +82,9 @@ export function PolicyModal({ isOpen, onClose, title, content }: PolicyModalProp
   };
 
   // Very basic inline parser for **bold** and [links](url)
-  const parseInline = (text: string) => {
+  const parseInline = (text: string): React.ReactNode[] => {
     // Bold
-    let parts: (string | JSX.Element)[] = [text];
+    let parts: React.ReactNode[] = [text];
     
     // Process Bold
     parts = parts.flatMap(part => {
