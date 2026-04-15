@@ -90,7 +90,7 @@ export function EmailCapturePopup() {
                 className="h-[2px] w-full"
                 style={{
                   background:
-                    "linear-gradient(to right, transparent, #C9A96E 25%, #F0B9B3 65%, transparent)",
+                    "linear-gradient(to right, transparent, #E0ADA4 25%, #F6EBEA 65%, transparent)",
                 }}
               />
 
@@ -107,7 +107,7 @@ export function EmailCapturePopup() {
                 {!submitted ? (
                   <>
                     {/* Header */}
-                    <p className="text-label-md text-[#C9A96E] mb-3 tracking-widest">
+                    <p className="text-label-md text-[#E0ADA4] mb-3 tracking-widest">
                       Toronto Real Estate
                     </p>
                     <h2 className="font-serif text-headline-md text-on-surface leading-snug mb-3">
@@ -129,7 +129,7 @@ export function EmailCapturePopup() {
                         { icon: MapPin,     text: "Hyper-local neighbourhood snapshots" },
                       ].map(({ icon: Icon, text }) => (
                         <li key={text} className="flex items-center gap-3 text-sm text-on-surface-variant">
-                          <Icon size={14} className="text-[#C9A96E] shrink-0" />
+                          <Icon size={14} className="text-[#E0ADA4] shrink-0" />
                           {text}
                         </li>
                       ))}
@@ -146,7 +146,7 @@ export function EmailCapturePopup() {
                           className="
                             flex-1 bg-surface-c-low border border-outline-variant rounded-lg
                             px-4 py-2.5 text-sm text-on-surface placeholder:text-on-surface-variant/50
-                            focus:outline-none focus:border-[#C9A96E] transition-colors
+                            focus:outline-none focus:border-[#E0ADA4] transition-colors
                           "
                           required
                           aria-label="Email address"
@@ -184,9 +184,9 @@ export function EmailCapturePopup() {
                   >
                     <div
                       className="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center"
-                      style={{ background: "rgba(201,169,110,0.12)", border: "1px solid rgba(201,169,110,0.3)" }}
+                      style={{ background: "rgba(224,173,164,0.12)", border: "1px solid rgba(224,173,164,0.3)" }}
                     >
-                      <span className="text-[#C9A96E] text-xl">✓</span>
+                      <span className="text-[#E0ADA4] text-xl">✓</span>
                     </div>
                     <h3 className="font-serif text-headline-sm text-on-surface mb-2">
                       You're in the loop.

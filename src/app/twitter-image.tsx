@@ -9,6 +9,14 @@ export const contentType = "image/png";
 export default async function Image() {
   const nicoleData = await readFile(join(process.cwd(), "public/nicole1.jpg"), "base64");
   const nicoleSrc = `data:image/jpeg;base64,${nicoleData}`;
+  
+  let logoSrc = "";
+  try {
+    const logoData = await readFile(join(process.cwd(), "public/nsre-logo-transparent.png"), "base64");
+    logoSrc = `data:image/png;base64,${logoData}`;
+  } catch (e) {
+    console.error(e);
+  }
 
   return new ImageResponse(
     (
@@ -17,7 +25,7 @@ export default async function Image() {
           width: "100%",
           height: "100%",
           display: "flex",
-          background: "#0c0a0f",
+          background: "#0E1121",
           position: "relative",
           overflow: "hidden",
         }}
@@ -41,7 +49,7 @@ export default async function Image() {
             top: 0,
             width: 540,
             height: 600,
-            background: "linear-gradient(to right, #0c0a0f 0%, rgba(12,10,15,0.6) 50%, transparent 100%)",
+            background: "linear-gradient(to right, #0E1121 0%, rgba(14,17,33,0.6) 50%, transparent 100%)",
             display: "flex",
           }}
         />
@@ -49,7 +57,7 @@ export default async function Image() {
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(to bottom, rgba(12,10,15,0.5) 0%, transparent 30%, transparent 70%, rgba(12,10,15,0.7) 100%)",
+            background: "linear-gradient(to bottom, rgba(14,17,33,0.5) 0%, transparent 30%, transparent 70%, rgba(14,17,33,0.7) 100%)",
             display: "flex",
           }}
         />
@@ -66,20 +74,26 @@ export default async function Image() {
             padding: "0 80px",
           }}
         >
-          <div style={{ width: 48, height: 2, background: "#c9a96e", marginBottom: 20, display: "flex" }} />
-          <div style={{ color: "#c9a96e", fontSize: 13, letterSpacing: "0.25em", fontWeight: 600, marginBottom: 24, display: "flex" }}>
+          <div style={{ width: 48, height: 2, background: "#E0ADA4", marginBottom: 20, display: "flex" }} />
+          <div style={{ color: "#E0ADA4", fontSize: 13, letterSpacing: "0.25em", fontWeight: 600, marginBottom: 24, display: "flex" }}>
             TORONTO REAL ESTATE
           </div>
-          <div style={{ display: "flex", flexDirection: "column", marginBottom: 20 }}>
-            <div style={{ color: "#f0ece4", fontSize: 84, fontWeight: 600, lineHeight: 1, display: "flex" }}>Nicole</div>
-            <div style={{ color: "#c9a96e", fontSize: 84, fontWeight: 600, lineHeight: 1, fontStyle: "italic", display: "flex" }}>Shlass</div>
+          <div style={{ display: "flex", marginBottom: 10 }}>
+            {logoSrc ? (
+              <img src={logoSrc} width={360} style={{ objectFit: 'contain' }} />
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <div style={{ color: "#F6EBEA", fontSize: 84, fontWeight: 600, lineHeight: 1, display: "flex" }}>Nicole</div>
+                <div style={{ color: "#E0ADA4", fontSize: 84, fontWeight: 600, lineHeight: 1, fontStyle: "italic", display: "flex" }}>Shlass</div>
+              </div>
+            )}
           </div>
-          <div style={{ color: "rgba(240,236,228,0.5)", fontSize: 17, letterSpacing: "0.12em", marginBottom: 44, display: "flex" }}>
+          <div style={{ color: "rgba(246,235,234,0.5)", fontSize: 17, letterSpacing: "0.12em", marginBottom: 44, display: "flex" }}>
             Sales Representative · Property.ca
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <div style={{ width: 36, height: 1, background: "rgba(201,169,110,0.5)", display: "flex" }} />
-            <div style={{ color: "rgba(201,169,110,0.6)", fontSize: 13, letterSpacing: "0.22em", display: "flex" }}>NICOLESHLASS.CA</div>
+            <div style={{ width: 36, height: 1, background: "rgba(224,173,164,0.5)", display: "flex" }} />
+            <div style={{ color: "rgba(224,173,164,0.6)", fontSize: 13, letterSpacing: "0.22em", display: "flex" }}>NICOLESHLASS.CA</div>
           </div>
         </div>
       </div>

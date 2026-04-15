@@ -4,8 +4,8 @@ import { useState, useRef, useEffect, useCallback, type FormEvent } from "react"
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, X, Send } from "lucide-react";
-import { NSMonogram } from "@/components/ui/NSMonogram";
+import { MessageCircle, Sparkles, X, Minimize2, Maximize2, Send, Loader2 } from "lucide-react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -748,7 +748,7 @@ export function Chatbot() {
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-outline-variant/15 shrink-0">
-              <NSMonogram size={24} className="text-on-surface shrink-0" />
+              <Image src="/nsre-logo-transparent.png" alt="NSRE Logo" width={60} height={20} className="object-contain" />
               <div className="flex-1 min-w-0">
                 <p className="font-serif text-on-surface text-sm font-semibold leading-none">
                   Nicole

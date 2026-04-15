@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { NSMonogram } from "@/components/ui/NSMonogram";
+import Image from "next/image";
 
 const PHONE_DISPLAY = "416-271-6316";
 const PHONE_HREF    = "tel:4162716316";
@@ -131,24 +131,15 @@ export function Nav() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.55, ease: "easeOut" }}
           >
-            <Link href="/" className="flex items-center gap-3 leading-none group shrink-0">
-              <NSMonogram
-                size={30}
-                className="text-on-surface transition-colors duration-300 group-hover:text-gold shrink-0"
+            <Link href="/" className="flex items-center leading-none group shrink-0 hover:opacity-80 transition-opacity">
+              <Image
+                src="/nsre-logo-transparent.png"
+                alt="Nicole Shlass Real Estate"
+                width={240}
+                height={90}
+                className="object-contain w-auto h-16 md:h-20"
+                priority
               />
-              {/* Vertical rule */}
-              <span
-                className="h-8 w-px shrink-0 transition-opacity duration-300"
-                style={{ background: "linear-gradient(to bottom, transparent, rgba(145,144,152,0.35) 40%, rgba(145,144,152,0.35) 60%, transparent)" }}
-              />
-              <div className="flex flex-col leading-none gap-0.5">
-                <span className="font-serif text-on-surface text-[1.05rem] font-semibold tracking-tight group-hover:text-gold transition-colors duration-300">
-                  Nicole Shlass
-                </span>
-                <span className="text-[0.6rem] text-outline tracking-[0.22em] uppercase">
-                  Real Estate
-                </span>
-              </div>
             </Link>
           </motion.div>
 
@@ -264,12 +255,14 @@ export function Nav() {
             >
               {/* Top bar */}
               <div className="flex items-center justify-between px-6 pt-6 pb-5 border-b border-outline-variant/12">
-                <Link href="/" onClick={() => setOpen(false)} className="flex items-center gap-2.5 group">
-                  <NSMonogram size={22} className="text-on-surface-variant group-hover:text-gold transition-colors duration-200 shrink-0" />
-                  <div className="flex flex-col leading-none gap-0.5">
-                    <span className="font-serif text-on-surface text-sm font-semibold group-hover:text-gold transition-colors duration-200">Nicole Shlass</span>
-                    <span className="text-[0.55rem] text-outline tracking-[0.2em] uppercase">Real Estate</span>
-                  </div>
+                <Link href="/" onClick={() => setOpen(false)} className="flex items-center group hover:opacity-80 transition-opacity">
+                  <Image
+                    src="/nsre-logo-transparent.png"
+                    alt="Nicole Shlass Real Estate"
+                    width={200}
+                    height={75}
+                    className="object-contain w-auto h-14"
+                  />
                 </Link>
                 <button
                   onClick={() => setOpen(false)}

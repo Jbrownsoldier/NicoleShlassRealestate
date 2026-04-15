@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 };
 
 const stats = [
-  { icon: Award,      value: "14",   suffix: " Yrs", label: "Of Experience" },
+  { icon: Award,      value: "15",   suffix: " Yrs", label: "Of Experience" },
   { icon: TrendingUp, value: "416",                  label: "Area Specialist" },
   { icon: Star,       value: "100%",                 label: "Client Satisfaction" },
 ];
@@ -63,7 +63,7 @@ export default function HomePage() {
                     value={value}
                     className="font-serif text-headline-lg text-gradient-gold font-semibold"
                   />
-                  <p className="text-label-md text-outline">{label}</p>
+                  <p className="text-label-md text-on-surface-variant font-medium opacity-80">{label}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -187,7 +187,7 @@ export default function HomePage() {
                     <div className="absolute bottom-4 left-4">
                       <div className="glass rounded-xl px-4 py-3 scale-90 origin-bottom-left">
                         <p className="font-serif text-title-md text-on-surface font-semibold">Nicole Shlass</p>
-                        <p className="text-label-sm text-outline mt-0.5">Sales Representative</p>
+                        <p className="text-label-sm text-on-surface-variant/80 mt-0.5">Sales Representative</p>
                       </div>
                     </div>
                   </div>

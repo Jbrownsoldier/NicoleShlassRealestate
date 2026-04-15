@@ -82,12 +82,12 @@ export default function SellingPage() {
             {[
               { value: "98%",   label: "List-to-Sale Ratio" },
               { value: "21",    label: "Avg. Days on Market" },
-              { value: "14+",   label: "Years in Toronto" },
+              { value: "15+",   label: "Years in Toronto" },
               { value: "100%",  label: "Client Satisfaction" },
             ].map(({ value, label }) => (
               <div key={label}>
                 <p className="font-serif text-display-md text-secondary font-semibold">{value}</p>
-                <p className="text-label-md text-outline mt-1">{label}</p>
+                <p className="text-label-md text-on-surface-variant/70 mt-1 font-medium tracking-wide">{label}</p>
               </div>
             ))}
           </div>

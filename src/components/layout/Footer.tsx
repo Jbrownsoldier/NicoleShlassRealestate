@@ -1,6 +1,12 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, Mail, MapPin, Instagram, Facebook, Linkedin } from "lucide-react";
 import { StaggerChildren, StaggerItem } from "@/components/ui/RevealOnScroll";
+import { PolicyModal } from "@/components/ui/PolicyModal";
+import { PRIVACY_POLICY, TERMS_OF_SERVICE } from "@/data/policies";
 
 // Social Links data
 const socialLinks = [
@@ -46,8 +52,23 @@ const company = [
 ];
 
 export function Footer() {
+  const [activePolicy, setActivePolicy] = useState<"privacy" | "tos" | null>(null);
+
   return (
-    <footer className="bg-surface-c-lowest">
+    <footer className="bg-surface-c-lowest relative">
+      <PolicyModal
+        isOpen={activePolicy === "privacy"}
+        onClose={() => setActivePolicy(null)}
+        title="Privacy Policy"
+        content={PRIVACY_POLICY}
+      />
+      <PolicyModal
+        isOpen={activePolicy === "tos"}
+        onClose={() => setActivePolicy(null)}
+        title="Terms of Service"
+        content={TERMS_OF_SERVICE}
+      />
+
       {/* Gradient top accent line */}
       <div className="h-px bg-gradient-to-r from-transparent via-secondary/35 to-transparent" />
       <div className="border-t border-outline-variant/10">
@@ -56,8 +77,7 @@ export function Footer() {
           {/* Brand */}
           <StaggerItem className="lg:col-span-1">
             <div className="mb-5">
-              <p className="font-serif text-xl font-semibold text-on-surface">Nicole Shlass</p>
-              <p className="text-label-sm text-outline tracking-widest mt-0.5">REAL ESTATE</p>
+              <Image src="/nsre-logo-transparent.png" alt="Nicole Shlass Real Estate" width={280} height={100} className="object-contain w-auto h-24 md:h-28 opacity-90" />
             </div>
             <p className="text-body-md text-on-surface-variant leading-relaxed max-w-xs">
               Residential real estate for first-time buyers, upsizers, and families across Toronto and the GTA.
@@ -80,7 +100,7 @@ export function Footer() {
 
           {/* Services */}
           <StaggerItem>
-            <h4 className="text-label-lg text-outline mb-5">Services</h4>
+            <h4 className="text-label-lg text-on-surface-variant/70 mb-5 font-semibold">Services</h4>
             <ul className="space-y-3">
               {services.map(({ href, label }) => (
                 <li key={href}>
@@ -94,7 +114,7 @@ export function Footer() {
 
           {/* Company */}
           <StaggerItem>
-            <h4 className="text-label-lg text-outline mb-5">Company</h4>
+            <h4 className="text-label-lg text-on-surface-variant/70 mb-5 font-semibold">Company</h4>
             <ul className="space-y-3">
               {company.map(({ href, label }) => (
                 <li key={href}>
@@ -108,7 +128,7 @@ export function Footer() {
 
           {/* Contact */}
           <StaggerItem>
-            <h4 className="text-label-lg text-outline mb-5">Contact</h4>
+            <h4 className="text-label-lg text-on-surface-variant/70 mb-5 font-semibold">Contact</h4>
             <ul className="space-y-4">
               <li>
                 <a href="tel:+14162716316" className="flex items-start gap-3 text-body-md text-on-surface-variant hover:text-on-surface transition-colors group">
@@ -136,6 +156,20 @@ export function Footer() {
           <p className="text-label-sm text-outline">
             © {new Date().getFullYear()} Nicole Shlass Real Estate. All rights reserved.
           </p>
+          <div className="flex items-center gap-6">
+            <button
+              onClick={() => setActivePolicy("tos")}
+              className="text-label-sm text-outline/60 hover:text-on-surface transition-colors"
+            >
+              Terms of Service
+            </button>
+            <button
+              onClick={() => setActivePolicy("privacy")}
+              className="text-label-sm text-outline/60 hover:text-on-surface transition-colors"
+            >
+              Privacy Policy
+            </button>
+          </div>
           <p className="text-label-sm text-outline/60">
             The Boulevard powered by Property.ca · Equal Housing Opportunity
           </p>

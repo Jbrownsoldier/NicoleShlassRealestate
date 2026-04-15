@@ -10,9 +10,8 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { Spotlight } from "@/components/ui/Spotlight";
 
 const accolades = [
-  { icon: Clock,  value: "14", suffix: " Yrs", label: "In the Toronto Market" },
+  { icon: Clock,  value: "15", suffix: " Yrs", label: "In the Toronto Market" },
   { icon: Award,  value: "2011",               label: "Career Start" },
-  { icon: Users,  value: "10+",  suffix: " Yrs", label: "In Toronto Real Estate" },
   { icon: Award,  value: "416",                label: "Area Specialist" },
 ];
 
@@ -64,7 +63,7 @@ export default function AboutPage() {
       {/* Stats */}
       <section className="bg-surface border-y border-outline-variant/20">
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <StaggerChildren className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             {accolades.map(({ icon: Icon, value, suffix, label }) => (
               <StaggerItem key={label} className="flex flex-col items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
@@ -76,7 +75,7 @@ export default function AboutPage() {
                     suffix={suffix}
                     className="font-serif text-display-md text-on-surface font-semibold"
                   />
-                  <p className="text-label-md text-outline">{label}</p>
+                  <p className="text-label-md text-on-surface-variant/70 font-medium tracking-wider">{label}</p>
                 </div>
               </StaggerItem>
             ))}
